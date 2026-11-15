@@ -1,0 +1,219 @@
+/* ============================================================
+ * AI 白話詞典 —— 全站唯一樣式表
+ * 規則見 CLAUDE.md 第 12 節。新增樣式請放在對應區塊。
+ * ============================================================ */
+
+/* ---------- 1. 色彩與變數 ---------- */
+:root {
+  --bg: #faf8f3;
+  --surface: #ffffff;
+  --text: #22262a;
+  --muted: #6b7178;
+  --border: #e4e0d6;
+  --accent: #1f6f5c;
+  --accent-soft: #e3f1ec;
+
+  --cat-basics: #2f6fb5;
+  --cat-usage:  #c07a12;
+  --cat-system: #7b4bb8;
+  --cat-risk:   #c2453d;
+
+  --radius: 14px;
+  --content: 720px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16191c;
+    --surface: #1f2327;
+    --text: #e8e6e1;
+    --muted: #9aa0a6;
+    --border: #33383d;
+    --accent: #5fc2a6;
+    --accent-soft: #1d3530;
+
+    --cat-basics: #6fa8e8;
+    --cat-usage:  #e3a64a;
+    --cat-system: #b08ae6;
+    --cat-risk:   #ec7b72;
+  }
+}
+
+/* ---------- 2. 基礎 ---------- */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  font-size: 17px;
+  line-height: 1.8;
+}
+a { color: var(--accent); }
+a:hover { text-decoration-thickness: 2px; }
+h1, h2, h3 { line-height: 1.35; }
+code {
+  background: var(--accent-soft);
+  padding: 0.1em 0.4em;
+  border-radius: 6px;
+  font-size: 0.92em;
+}
+.wrap { max-width: var(--content); margin: 0 auto; padding: 0 16px; }
+.wrap-wide { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+
+/* ---------- 3. 頁首 / 頁尾（site.js 產生） ---------- */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+.site-header .wrap-wide {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; min-height: 60px; flex-wrap: wrap;
+}
+.brand {
+  font-weight: 700; font-size: 1.1rem; color: var(--text); text-decoration: none;
+  display: flex; align-items: center; gap: 8px;
+}
+.brand-mark {
+  display: inline-grid; place-items: center;
+  width: 30px; height: 30px; border-radius: 8px;
+  background: var(--accent); color: var(--bg); font-size: 0.85rem;
+}
+.site-nav { display: flex; gap: 18px; }
+.site-nav a { color: var(--muted); text-decoration: none; font-size: 0.95rem; }
+.site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--accent); }
+
+.site-footer {
+  margin-top: 72px; padding: 28px 0 40px;
+  border-top: 1px solid var(--border);
+  color: var(--muted); font-size: 0.88rem; text-align: center;
+}
+
+/* ---------- 4. 首頁 ---------- */
+.hero { padding: 56px 0 24px; }
+.hero h1 { font-size: clamp(1.9rem, 5vw, 2.6rem); margin: 0 0 8px; }
+.hero p { color: var(--muted); margin: 0; max-width: 560px; }
+
+.toolbar { display: flex; flex-direction: column; gap: 14px; margin: 28px 0 24px; }
+.search {
+  width: 100%; padding: 12px 16px; font: inherit;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--surface); color: var(--text);
+}
+.search:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  font: inherit; font-size: 0.9rem; cursor: pointer;
+  padding: 4px 14px; border-radius: 999px;
+  border: 1px solid var(--border); background: var(--surface); color: var(--text);
+}
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+
+.grid {
+  display: grid; gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+.card {
+  display: block; text-decoration: none; color: var(--text);
+  background: var(--surface); border: 1px solid var(--border);
+  border-left: 5px solid var(--cat, var(--accent));
+  border-radius: var(--radius); padding: 18px 20px;
+  transition: transform .15s ease, border-color .15s ease;
+}
+.card:hover { transform: translateY(-2px); border-color: var(--cat, var(--accent)); }
+.card h3 { margin: 6px 0 2px; font-size: 1.15rem; }
+.card .en { color: var(--muted); font-size: 0.85rem; margin: 0 0 8px; }
+.card .sum { margin: 0; font-size: 0.95rem; }
+.card-meta { display: flex; justify-content: space-between; align-items: center; }
+.empty { color: var(--muted); text-align: center; padding: 40px 0; }
+
+/* ---------- 5. 分類標籤與難度 ---------- */
+.tag {
+  display: inline-block; font-size: 0.78rem; font-weight: 600;
+  padding: 1px 10px; border-radius: 999px;
+  color: var(--cat); border: 1px solid var(--cat);
+}
+.level { color: var(--muted); font-size: 0.8rem; letter-spacing: 1px; }
+[data-cat="basics"] { --cat: var(--cat-basics); }
+[data-cat="usage"]  { --cat: var(--cat-usage); }
+[data-cat="system"] { --cat: var(--cat-system); }
+[data-cat="risk"]   { --cat: var(--cat-risk); }
+
+/* ---------- 6. 名詞頁 ---------- */
+.crumb { margin: 28px 0 0; font-size: 0.88rem; color: var(--muted); }
+.crumb a { color: var(--muted); }
+.term-head { padding: 12px 0 8px; }
+.term-head h1 { font-size: clamp(1.8rem, 5vw, 2.4rem); margin: 8px 0 0; }
+.term-head .en { color: var(--muted); margin: 0 0 10px; }
+.term-head .meta { display: flex; gap: 12px; align-items: center; }
+
+.tldr {
+  margin: 24px 0 8px; padding: 18px 22px;
+  background: var(--accent-soft); border-radius: var(--radius);
+  font-size: 1.15rem; font-weight: 500;
+}
+.tldr::before { content: "一句話："; font-weight: 700; color: var(--accent); }
+
+article section { margin-top: 36px; }
+article h2 { font-size: 1.3rem; margin: 0 0 10px; }
+
+.steps { padding-left: 0; list-style: none; counter-reset: s; }
+.steps li {
+  counter-increment: s; position: relative;
+  padding: 0 0 14px 44px;
+}
+.steps li::before {
+  content: counter(s); position: absolute; left: 0; top: 2px;
+  width: 30px; height: 30px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--accent); color: var(--bg); font-weight: 700; font-size: 0.9rem;
+}
+
+.chat {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 14px 18px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.chat p { margin: 0; padding: 8px 14px; border-radius: 12px; max-width: 88%; }
+.chat .user { align-self: flex-end; background: var(--accent); color: var(--bg); }
+.chat .ai { align-self: flex-start; background: var(--accent-soft); }
+.chat .note { align-self: center; color: var(--muted); font-size: 0.85rem; background: none; }
+
+.myths { list-style: none; padding: 0; }
+.myths li {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 12px 16px; margin-bottom: 10px;
+}
+.myths .no { display: block; color: var(--cat-risk); }
+.myths .yes { display: block; }
+
+.term-link {
+  text-decoration: none; border-bottom: 1px dashed var(--accent);
+}
+
+/* 相關名詞與上下篇（site.js 產生） */
+.related { margin-top: 48px; }
+.related h2 { font-size: 1.1rem; }
+.related .grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+.related .card { padding: 12px 16px; }
+.related .card h3 { font-size: 1rem; margin: 4px 0 0; }
+
+.pager {
+  display: flex; justify-content: space-between; gap: 12px;
+  margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border);
+}
+.pager a { text-decoration: none; font-size: 0.95rem; }
+.pager .next { margin-left: auto; text-align: right; }
+
+/* ---------- 7. 關於頁 ---------- */
+.prose h1 { margin-top: 48px; }
+.prose table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+.prose th, .prose td { border: 1px solid var(--border); padding: 6px 10px; text-align: left; }
+
+/* ---------- 8. 手機 ---------- */
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .hero { padding-top: 36px; }
+  .chat p { max-width: 100%; }
+}

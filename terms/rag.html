@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>檢索增強生成｜AI 白話詞典</title>
+  <meta name="description" content="先幫 AI 查好相關資料，再讓它看著資料回答。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root=".." data-slug="rag">
+  <main class="wrap">
+    <article>
+      <section class="tldr">先幫 AI 查好相關資料，再讓它看著資料回答。</section>
+
+      <section>
+        <h2>🍜 白話比喻</h2>
+        <p>一般的<a class="term-link" href="llm.html">大型語言模型</a>像是「閉卷考試」：只能靠腦袋裡的記憶作答，記錯就會產生<a class="term-link" href="hallucination.html">幻覺</a>。RAG 則是把考試改成「開書考」：在回答之前，先派一個助教去翻課本，把相關的那幾頁找出來放在桌上，AI 再看著這幾頁作答。答案自然比較準，也能說出「根據第幾頁」。</p>
+      </section>
+
+      <section>
+        <h2>⚙️ 它是怎麼運作的</h2>
+        <ol class="steps">
+          <li><strong>準備資料</strong>：把講義、公司文件、FAQ 等切成小段，存進可以搜尋的資料庫。</li>
+          <li><strong>搜尋</strong>：使用者提問時，系統先找出和問題最相關的幾段資料。</li>
+          <li><strong>組合提示詞</strong>：把「問題 + 找到的資料」一起放進<a class="term-link" href="prompt.html">提示詞</a>。</li>
+          <li><strong>生成回答</strong>：AI 根據這些資料回答，並可以附上出處。</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>💬 實際例子</h2>
+        <div class="chat">
+          <p class="user">我們系上的畢業學分是多少？</p>
+          <p class="note">系統先在「系上修業規定.pdf」裡找到相關段落，附在提示詞裡。</p>
+          <p class="ai">根據〈修業規定〉第 3 條，畢業需修滿 128 學分，其中必修 62 學分。</p>
+          <p class="note">（例子中的數字為示意）</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>⚠️ 常見誤解</h2>
+        <ul class="myths">
+          <li><span class="no">❌ 用了 RAG，AI 就是在「學習」我的資料。</span><span class="yes">✅ 模型本身沒有改變，只是每次回答前都先拿到參考資料。</span></li>
+          <li><span class="no">❌ 有 RAG 就百分之百正確。</span><span class="yes">✅ 如果搜尋找錯資料，或資料本身過時，答案一樣會錯。</span></li>
+        </ul>
+      </section>
+
+      <nav class="related"></nav>
+    </article>
+  </main>
+
+  <script src="../data/terms.js"></script>
+  <script src="../assets/site.js"></script>
+</body>
+</html>

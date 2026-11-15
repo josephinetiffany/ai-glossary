@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 代理｜AI 白話詞典</title>
+  <meta name="description" content="會自己規劃步驟、使用工具，把一件任務從頭做到完的 AI。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root=".." data-slug="ai-agent">
+  <main class="wrap">
+    <article>
+      <section class="tldr">會自己規劃步驟、使用工具，把一件任務從頭做到完的 AI。</section>
+
+      <section>
+        <h2>🍜 白話比喻</h2>
+        <p>一般的聊天 AI 像是「顧問」：你問它怎麼訂火車票，它會告訴你步驟，但要你自己去做。AI 代理則像是「助理」：你說「幫我訂週五回高雄的車票」，它會自己打開訂票網站、查時刻、挑座位、遇到問題再回來問你，直到把事情辦好。</p>
+      </section>
+
+      <section>
+        <h2>⚙️ 它是怎麼運作的</h2>
+        <ol class="steps">
+          <li><strong>理解目標</strong>：讀懂使用者的任務，以及專案規則（例如本站的 <code>CLAUDE.md</code>）。</li>
+          <li><strong>拆解計畫</strong>：把大任務拆成小步驟。</li>
+          <li><strong>使用工具</strong>：讀寫檔案、搜尋網路、執行程式、呼叫 API。</li>
+          <li><strong>觀察結果</strong>：看每一步的結果對不對，不對就修正，再進行下一步。</li>
+          <li><strong>回報</strong>：完成後告訴使用者做了什麼。</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>💬 實際例子</h2>
+        <div class="chat">
+          <p class="user">幫這個網站新增一個「微調 Fine-tuning」的名詞頁。</p>
+          <p class="ai">我先讀了 CLAUDE.md：複製範本到 terms/fine-tuning.html、依六個區塊撰寫、在 data/terms.js 登記，並把它加到 LLM 頁的相關名詞。完成了，以下是修改的檔案……</p>
+          <p class="note">這正是本站的開發方式：規則寫清楚，AI 代理就能照著擴充。</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>⚠️ 常見誤解</h2>
+        <ul class="myths">
+          <li><span class="no">❌ AI 代理什麼都能自己做，不用管它。</span><span class="yes">✅ 它仍會犯錯，重要動作（付款、刪檔、寄信）應該由人確認。</span></li>
+          <li><span class="no">❌ 代理和聊天機器人是完全不同的東西。</span><span class="yes">✅ 核心通常是同一個 <a class="term-link" href="llm.html">LLM</a>，差別在於多了「工具」和「反覆執行」的能力。</span></li>
+        </ul>
+      </section>
+
+      <nav class="related"></nav>
+    </article>
+  </main>
+
+  <script src="../data/terms.js"></script>
+  <script src="../assets/site.js"></script>
+</body>
+</html>

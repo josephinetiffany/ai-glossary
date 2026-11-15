@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>關於本站｜AI 白話詞典</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-root="." data-page="about">
+  <main class="wrap prose">
+    <h1>關於 AI 白話詞典</h1>
+    <p>這是一個用繁體中文、白話和生活比喻解釋 AI 名詞的小網站。每一個名詞都遵守同一套寫作格式，讓讀者不管點開哪一頁，都能用同樣的節奏讀懂。</p>
+
+    <h2>每一頁都長一樣</h2>
+    <table>
+      <tr><th>區塊</th><th>目的</th></tr>
+      <tr><td>一句話</td><td>40 字內講完它是什麼</td></tr>
+      <tr><td>🍜 白話比喻</td><td>用一個生活例子讓你秒懂</td></tr>
+      <tr><td>⚙️ 它是怎麼運作的</td><td>3–5 個步驟看懂原理</td></tr>
+      <tr><td>💬 實際例子</td><td>看它在真實情境中的樣子</td></tr>
+      <tr><td>⚠️ 常見誤解</td><td>避開最容易搞錯的地方</td></tr>
+      <tr><td>🔗 相關名詞</td><td>接著讀下一個概念</td></tr>
+    </table>
+
+    <h2>這個網站是怎麼做出來的？</h2>
+    <p>本站的所有規則都寫在專案根目錄的 <code>CLAUDE.md</code>（另有 <code>AGENTS.md</code> 指向它）。裡面規定了檔案結構、命名方式、分類、每頁的固定區塊、寫作風格，以及「新增一個名詞」的標準流程與自我檢查清單。</p>
+    <p>所以要新增內容時，只需要對 AI 說一句：</p>
+    <p><code>請依照 CLAUDE.md，新增名詞「微調 Fine-tuning」。</code></p>
+    <p>AI 就會複製範本、照格式寫內容、在 <code>data/terms.js</code> 登記，首頁卡片、搜尋、分類篩選、相關名詞與上一篇／下一篇都會自動更新，不需要手動改任何其他頁面。</p>
+
+    <h2>分類</h2>
+    <ul>
+      <li><strong>基礎概念</strong>：AI 本身是什麼、怎麼運作</li>
+      <li><strong>使用技巧</strong>：怎麼更好地使用 AI</li>
+      <li><strong>系統架構</strong>：把 AI 組裝成產品的技術</li>
+      <li><strong>風險與限制</strong>：AI 的問題、限制與倫理</li>
+    </ul>
+
+    <p><a href="https://github.com/josephinetiffany/ai-glossary">在 GitHub 上查看原始碼與 CLAUDE.md →</a></p>
+  </main>
+
+  <script src="data/terms.js"></script>
+  <script src="assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Token（詞元）｜AI 白話詞典</title>
+  <meta name="description" content="AI 讀寫文字時的最小單位，也是計算長度與費用的單位。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root=".." data-slug="token">
+  <main class="wrap">
+    <article>
+      <section class="tldr">AI 讀寫文字時的最小單位，也是計算長度與費用的單位。</section>
+
+      <section>
+        <h2>🍜 白話比喻</h2>
+        <p>Token 就像樂高積木。<a class="term-link" href="llm.html">大型語言模型</a>沒辦法直接看「一整句話」，它會先把句子拆成一塊塊積木，再用積木來理解和組裝回答。常見的英文單字可能一塊就搞定，少見的字會被拆成好幾塊；中文通常一到兩個字就是一塊。</p>
+        <p>每個模型能同時拿在手上的積木數量有上限（叫做「上下文長度」），超過了，最前面的積木就會被放下——這就是為什麼聊太久，AI 會「忘記」一開始說過的話。</p>
+      </section>
+
+      <section>
+        <h2>⚙️ 它是怎麼運作的</h2>
+        <ol class="steps">
+          <li><strong>切塊</strong>：分詞器（tokenizer）依照事先學好的規則，把文字切成 token。</li>
+          <li><strong>變成編號</strong>：每個 token 對應一個數字編號，模型實際處理的是這串數字。</li>
+          <li><strong>計算與限制</strong>：輸入加上輸出的 token 總數，決定了能不能放得下、以及使用 API 時要付多少錢。</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>💬 實際例子</h2>
+        <div class="chat">
+          <p class="user">I love bubble tea</p>
+          <p class="note">可能被切成：「I」「 love」「 bubble」「 tea」→ 約 4 個 token</p>
+          <p class="user">我愛珍珠奶茶</p>
+          <p class="note">中文常被切得比較碎，同樣意思可能用掉更多 token（實際數量依模型而不同）。</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>⚠️ 常見誤解</h2>
+        <ul class="myths">
+          <li><span class="no">❌ 1 個 token = 1 個字。</span><span class="yes">✅ 不一定，要看語言和模型的分詞方式。</span></li>
+          <li><span class="no">❌ 上下文越長，AI 就一定記得越清楚。</span><span class="yes">✅ 放得下不代表都會注意到，重點資訊最好寫在<a class="term-link" href="prompt.html">提示詞</a>裡明顯的位置。</span></li>
+        </ul>
+      </section>
+
+      <nav class="related"></nav>
+    </article>
+  </main>
+
+  <script src="../data/terms.js"></script>
+  <script src="../assets/site.js"></script>
+</body>
+</html>

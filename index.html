@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 白話詞典</title>
+  <meta name="description" content="用白話和生活比喻解釋 AI 名詞的繁體中文小詞典。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-root="." data-page="home">
+  <main class="wrap-wide">
+    <section class="hero">
+      <h1>AI 名詞，講人話。</h1>
+      <p>一個名詞一頁：先用一句話說清楚，再用生活比喻讓你秒懂，最後才講原理。給每個常聽到 AI 名詞、卻不好意思問的人。</p>
+    </section>
+
+    <div class="toolbar">
+      <input id="search" class="search" type="search" placeholder="搜尋名詞，例如：RAG、幻覺、token…" aria-label="搜尋名詞">
+      <div id="chips" class="chips" role="group" aria-label="分類篩選"></div>
+    </div>
+
+    <div id="term-grid" class="grid"></div>
+  </main>
+
+  <script src="data/terms.js"></script>
+  <script src="assets/site.js"></script>
+</body>
+</html>

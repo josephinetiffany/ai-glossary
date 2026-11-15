@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>大型語言模型｜AI 白話詞典</title>
+  <meta name="description" content="一個讀過海量文字、專門猜「下一個字該接什麼」的程式。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root=".." data-slug="llm">
+  <main class="wrap">
+    <article>
+      <section class="tldr">一個讀過海量文字、專門猜「下一個字該接什麼」的程式。</section>
+
+      <section>
+        <h2>🍜 白話比喻</h2>
+        <p>想像一個超級愛看書的朋友，他把圖書館裡幾乎每一本書都讀過，但他並沒有把書背下來，而是練出一種「語感」：你說「今天天氣真」，他馬上覺得後面接「好」最自然。你跟他聊天時，他其實就是一個字一個字地接龍，只是接得非常順、非常像人。</p>
+        <p>這個朋友很博學，但他沒有上網查資料的習慣，也不一定記得每本書的細節——所以他偶爾會很有自信地講錯，這就是後面會提到的<a class="term-link" href="hallucination.html">幻覺</a>。</p>
+      </section>
+
+      <section>
+        <h2>⚙️ 它是怎麼運作的</h2>
+        <ol class="steps">
+          <li><strong>大量閱讀（預訓練）</strong>：讓模型看大量文字，練習「遮住下一個字，猜猜看」，猜錯就調整內部參數。</li>
+          <li><strong>學會聽指令（微調）</strong>：再用「問題 → 好答案」的範例教它，讓它從「會接龍」變成「會回答問題」。</li>
+          <li><strong>切成小塊來讀</strong>：你輸入的文字會先被切成一個個 <a class="term-link" href="token.html">Token</a>。</li>
+          <li><strong>一個一個吐出來</strong>：模型每次預測最可能的下一個 token，接上去，再預測下一個，直到回答完成。</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>💬 實際例子</h2>
+        <div class="chat">
+          <p class="user">幫我用一句話解釋光合作用。</p>
+          <p class="ai">光合作用是植物利用陽光，把水和二氧化碳變成養分和氧氣的過程。</p>
+          <p class="note">模型不是「查到」這句話，而是根據讀過的大量文字，一個字一個字「接」出來的。</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>⚠️ 常見誤解</h2>
+        <ul class="myths">
+          <li><span class="no">❌ LLM 裡面有一個資料庫，回答都是查出來的。</span><span class="yes">✅ 它存的是「語言的規律」，不是一條條資料；需要查資料要搭配 <a class="term-link" href="rag.html">RAG</a>。</span></li>
+          <li><span class="no">❌ 回答得很流暢，代表它真的理解。</span><span class="yes">✅ 流暢不等於正確，重要的事情還是要自己查證。</span></li>
+        </ul>
+      </section>
+
+      <nav class="related"></nav>
+    </article>
+  </main>
+
+  <script src="../data/terms.js"></script>
+  <script src="../assets/site.js"></script>
+</body>
+</html>

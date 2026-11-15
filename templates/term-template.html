@@ -1,0 +1,61 @@
+<!doctype html>
+<!--
+  名詞頁範本 —— 使用方式見 CLAUDE.md 第 6、9 節
+  1. 複製到 terms/{{slug}}.html
+  2. 替換所有 {{...}}，完成後檔案內不可殘留 "{{"
+  3. 標頭（中文名、英文名、分類、難度）與「相關名詞」由 site.js 自動產生，不要手寫
+  4. 記得在 data/terms.js 登記
+-->
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{中文名}}｜AI 白話詞典</title>
+  <meta name="description" content="{{一句話解釋}}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root=".." data-slug="{{slug}}">
+  <main class="wrap">
+    <article>
+      <section class="tldr">{{一句話解釋，40 字以內}}</section>
+
+      <section>
+        <h2>🍜 白話比喻</h2>
+        <p>{{用一個生活化的比喻，一個比喻講到底}}</p>
+      </section>
+
+      <section>
+        <h2>⚙️ 它是怎麼運作的</h2>
+        <ol class="steps">
+          <li>{{步驟 1}}</li>
+          <li>{{步驟 2}}</li>
+          <li>{{步驟 3}}</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>💬 實際例子</h2>
+        <div class="chat">
+          <p class="user">{{使用者說的話}}</p>
+          <p class="ai">{{AI 的回答}}</p>
+          <p class="note">{{（選用）旁白說明}}</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>⚠️ 常見誤解</h2>
+        <ul class="myths">
+          <li><span class="no">❌ {{誤解}}</span><span class="yes">✅ {{事實}}</span></li>
+        </ul>
+      </section>
+
+      <nav class="related"></nav>
+    </article>
+  </main>
+
+  <script src="../data/terms.js"></script>
+  <script src="../assets/site.js"></script>
+</body>
+</html>

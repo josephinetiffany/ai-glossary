@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>幻覺｜AI 白話詞典</title>
+  <meta name="description" content="AI 一本正經地講出錯誤，甚至完全捏造的內容。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-root=".." data-slug="hallucination">
+  <main class="wrap">
+    <article>
+      <section class="tldr">AI 一本正經地講出錯誤，甚至完全捏造的內容。</section>
+
+      <section>
+        <h2>🍜 白話比喻</h2>
+        <p>就像考試時遇到不會的申論題，有些同學不會留白，而是用很有自信的語氣寫滿整張考卷——文筆通順、格式漂亮，但內容是編的。<a class="term-link" href="llm.html">大型語言模型</a>的任務是「寫出看起來最合理的下一段話」，而不是「確認這是真的」，所以當它不知道答案時，常常也會照樣寫出一段很像真的答案。</p>
+      </section>
+
+      <section>
+        <h2>⚙️ 它是怎麼運作的</h2>
+        <ol class="steps">
+          <li><strong>沒看過或記不清</strong>：問題涉及冷門知識、最新消息或很精確的數字。</li>
+          <li><strong>照樣接龍</strong>：模型仍然會挑「最像答案」的字一路接下去。</li>
+          <li><strong>看起來很可信</strong>：語氣、格式都很正式，甚至附上不存在的書名或網址，讓人難以察覺。</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>💬 實際例子</h2>
+        <div class="chat">
+          <p class="user">請列出三篇討論台灣珍奶產業的學術論文，附上作者和年份。</p>
+          <p class="ai">當然！1.《……》，王○○，20XX……</p>
+          <p class="note">看起來很完整，但這些論文可能根本不存在。引用資料前，一定要自己用學術搜尋查一次。</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>⚠️ 常見誤解</h2>
+        <ul class="myths">
+          <li><span class="no">❌ AI 是故意說謊。</span><span class="yes">✅ 它沒有「說謊」的意圖，只是在產生看似合理的文字。</span></li>
+          <li><span class="no">❌ 換更強的模型就不會有幻覺。</span><span class="yes">✅ 會減少但不會消失；搭配 <a class="term-link" href="rag.html">RAG</a> 讓它看著資料回答，是常見的改善方式。</span></li>
+          <li><span class="no">❌ 它說「我很確定」就代表正確。</span><span class="yes">✅ AI 的語氣不等於可信度。</span></li>
+        </ul>
+      </section>
+
+      <nav class="related"></nav>
+    </article>
+  </main>
+
+  <script src="../data/terms.js"></script>
+  <script src="../assets/site.js"></script>
+</body>
+</html>
